@@ -1,0 +1,28 @@
+name: Daily Python Script Run
+on:
+  schedule:
+    - cron: '0 6 * * *'
+  workflow_dispatch:
+
+jobs:
+  run_script:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # Step 2: Set up Python environment
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'  # Replace '3.x' with the specific version of Python you need, like '3.8'
+
+      # Step 3: Install dependencies (if required)
+      - name: Install dependencies
+        run: |
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+
+      # Step 4: Run your Python script
+      - name: Run the Python script
+        run: python streakImage.py
