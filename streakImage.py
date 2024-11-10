@@ -21,7 +21,7 @@ def main():
     
     if response.status_code == 200:
         today_date = datetime.today().strftime('%Y-%m-%d')
-        filename = os.path.join(img_dir, f"{today_date}_streak.svg")
+        filename = os.path.join(img_dir, f"streak.svg")
         with open(filename, 'wb') as file:
             file.write(response.content)
     else:
