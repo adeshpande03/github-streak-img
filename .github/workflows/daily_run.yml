@@ -27,7 +27,7 @@ jobs:
 
       # Step 4: Run your Python script
       - name: Run the Python script
-        run: python daily_script.py
+        run: python streakImage.py
 
       # Step 5: Configure Git for commit
       - name: Set up Git
